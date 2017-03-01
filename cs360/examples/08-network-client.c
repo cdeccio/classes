@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 
 	sock = socket(AF_INET, SOCK_DGRAM, 0);
 
-	if (connect(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr_in)) < -1) {
+	if (connect(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr_in)) < 0) {
 		fprintf(stderr, "problem connecting: %d\n", errno);
 	}
 
