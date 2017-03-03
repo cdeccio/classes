@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (listen(sock, 10) < 0) {
-		fprintf(stderr, "problem listening: %d %d\n", len, errno);
+		fprintf(stderr, "problem listening: %d\n", errno);
 	}
 
 	out = fdopen(1, "w");
