@@ -30,10 +30,6 @@ int main(int argc, char *argv[]) {
 		fprintf(stderr, "problem binding: %d\n", errno);
 	}
 
-	if (listen(sock, 10) < 0) {
-		fprintf(stderr, "problem listening: %d\n", errno);
-	}
-
 	out = fdopen(1, "w");
 	while (1) {
 		if ((len = recvfrom(sock, buf, 1024, 0, (struct sockaddr *)&peer_addr, &addrlen)) < 0) {
