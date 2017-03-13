@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
 
 	out = fdopen(1, "w");
 	while (1) {
+		addrlen = sizeof(peer_addr);
 		if ((len = recvfrom(sock, buf, 1024, 0, (struct sockaddr *)&peer_addr, &addrlen)) < 0) {
 			fprintf(stderr, "problem receiving: %d\n", errno);
 
