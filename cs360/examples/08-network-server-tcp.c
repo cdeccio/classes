@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
 	if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr_in)) < 0) {
 		fprintf(stderr, "problem binding: %d\n", errno);
 	}
+	optval = 1;
 	setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
 
 	if (listen(sock, 10) < 0) {
