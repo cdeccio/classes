@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
 	int sock, clientsock;
 	int port;
 	char *server;
+	int optval;
 	unsigned char buf[1024];
 	unsigned char c;
 	struct sockaddr_in server_addr;
@@ -29,6 +30,7 @@ int main(int argc, char *argv[]) {
 	if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr_in)) < 0) {
 		fprintf(stderr, "problem binding: %d\n", errno);
 	}
+	setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
 
 	if (listen(sock, 10) < 0) {
 		fprintf(stderr, "problem listening: %d\n", errno);
